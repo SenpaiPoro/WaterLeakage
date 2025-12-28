@@ -2,39 +2,68 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/white">
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#FFFFFF">
 
     <TextView
-        android:fontFamily="casual"
-        android:id="@+id/textView"
-        android:textFontWeight="@integer/material_motion_duration_medium_2"
-        android:layout_width="307dp"
-        android:layout_height="158dp"
-        android:text="Leakage Detection!"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="@color/blue"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.195" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="235dp"
-        android:layout_height="289dp"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Water Tank Dashboard"
+        android:textSize="22sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:text="Normal"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.265" />
+
+    <TextView
+        android:id="@+id/tvDistance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:text="Distance: -- cm"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/status"
+        app:layout_constraintTop_toBottomOf="@+id/status" />
+
+    <TextView
+        android:id="@+id/tvPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Tank Level: -- %"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvDistance"
+        app:layout_constraintStart_toStartOf="@+id/tvDistance"
+        app:layout_constraintTop_toBottomOf="@+id/tvDistance" />
+
+    <TextView
+        android:id="@+id/tvLiters"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Water Lost: -- L"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvPercentage"
+        app:layout_constraintStart_toStartOf="@+id/tvPercentage"
+        app:layout_constraintTop_toBottomOf="@+id/tvPercentage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
