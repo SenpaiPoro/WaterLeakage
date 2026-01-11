@@ -4,14 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F6FA">
+    android:background="@color/background">
 
     <!-- HEADER -->
     <View
         android:id="@+id/header"
         android:layout_width="0dp"
         android:layout_height="160dp"
-        android:background="#6C84FF"
+        android:background="@color/primary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
@@ -21,7 +21,7 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Record"
+        android:text="Monitoring"
         android:textColor="@android:color/white"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -37,8 +37,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="-40dp"
+        android:layout_marginTop="-80dp"
         app:cardCornerRadius="20dp"
+        android:id="@+id/card"
         app:cardElevation="12dp"
         app:cardUseCompatPadding="true"
         app:cardBackgroundColor="@android:color/white"
@@ -49,14 +50,16 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:padding="16dp"
+            android:background="@color/card_background">
 
             <!-- CARD HEADER -->
             <TextView
                 android:id="@+id/shotViews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Shot Views"
+                android:text="Status"
+                android:textColor="@color/primary_text"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -87,6 +90,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                android:padding="5sp"
                 android:orientation="horizontal"
                 android:weightSum="3"
                 app:layout_constraintTop_toBottomOf="@id/shotViews"
@@ -104,7 +108,18 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/water"/>
+                        android:src="@drawable/water"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvPercentage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:layout_marginTop="6dp"
+                        android:text="Distance: -- cm"
+                        android:textColor="@color/secondary_text"
+                        android:textSize="14sp" />
 
 
                 </LinearLayout>
@@ -122,6 +137,16 @@
                         android:layout_height="24dp"
                         android:src="@drawable/tank"/>
 
+                    <TextView
+                        android:id="@+id/tvDistance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:textAlignment="center"
+                        android:textColor="@color/secondary_text"
+                        android:text="Distance: -- cm"
+                        android:textSize="14sp" />
+
                 </LinearLayout>
 
                 <!-- ITEM -->
@@ -138,31 +163,15 @@
                         android:src="@drawable/fusetnobg"/>
 
 
-
-                        <TextView
-                            android:id="@+id/tvDistance"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="84dp"
-                            android:text="Distance: -- cm"
-                            android:textSize="18sp"
-                            />
-                    <TextView
-                        android:id="@+id/tvPercentage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="84dp"
-                        android:text="Distance: -- cm"
-                        android:textSize="18sp"
-                        />
                     <TextView
                         android:id="@+id/tvLiters"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="84dp"
+                        android:textAlignment="center"
+                        android:layout_marginTop="6dp"
+                        android:textColor="@color/secondary_text"
                         android:text="Distance: -- cm"
-                        android:textSize="18sp"
-                        />
+                        android:textSize="14sp" />
 
                 </LinearLayout>
 
@@ -172,75 +181,32 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:padding="@dimen/_16ssp"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/dashboard_item_1" />
+
+            <include layout="@layout/dashboard_item_2" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
-    <!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    android:orientation="vertical"-->
-<!--    android:padding="24dp"-->
-<!--    android:background="#FFFFFF">-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/title"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:text="Water Tank Dashboard"-->
-<!--        android:textSize="22sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/status"-->
-<!--        android:layout_width="200sp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="24dp"-->
-<!--        android:text="Normal"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textSize="34sp"-->
-<!--        android:textStyle="bold"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/title" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/tvDistance"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="84dp"-->
-<!--        android:text="Distance: &#45;&#45; cm"-->
-<!--        android:textSize="18sp"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/status"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/status"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/status" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/tvPercentage"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="36dp"-->
-<!--        android:text="Tank Level: &#45;&#45; %"-->
-<!--        android:textSize="18sp"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/tvDistance"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/tvDistance"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tvDistance" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/tvLiters"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="48dp"-->
-<!--        android:text="Water Lost: &#45;&#45; L"-->
-<!--        android:textSize="18sp"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/tvPercentage"-->
-<!--        app:layout_constraintStart_toStartOf="@+id/tvPercentage"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tvPercentage" />-->
-
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
