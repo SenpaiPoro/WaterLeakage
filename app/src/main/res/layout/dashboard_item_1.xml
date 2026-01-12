@@ -22,7 +22,7 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/_8sdp"
             android:src="@drawable/check"
-            android:tint="@color/white" />
+            />
 
 
     </com.google.android.material.card.MaterialCardView>
