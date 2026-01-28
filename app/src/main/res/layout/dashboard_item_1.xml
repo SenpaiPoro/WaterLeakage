@@ -48,6 +48,7 @@
             android:paddingBottom="@dimen/_16sdp">
 
             <TextView
+                android:id="@+id/status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="NORMAL"
